@@ -1,0 +1,82 @@
+/* تنسيق الصفحة الأساسية */
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0e1e2b, #1a2d40);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden; /* لإخفاء أي شيء يخرج عن حدود الشاشة */
+  box-sizing: border-box;
+}
+
+/* تأثير الشعار (الـ logo) */
+.logo-placeholder {
+  font-size: 120px;
+  margin-bottom: 40px;
+  animation: bounce 1.5s ease-in-out infinite, glow 2s alternate infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.7); /* تأثير التوهج */
+}
+
+/* تنسيق العنوان */
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* تأثير النص عند التحميل */
+.loading-text {
+  font-size: 18px;
+  color: #cccccc;
+  animation: blink 1.5s infinite, fadeIn 2s ease-in-out forwards;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.6);
+  opacity: 0.8;
+}
+
+/* تأثيرات الحركات */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* إضافة تأثير التوهج المستمر على الشعار */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 50px rgba(0, 255, 255, 1);
+  }
+}

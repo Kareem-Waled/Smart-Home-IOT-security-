@@ -1,0 +1,30 @@
+<div class="dashboard">
+  <h2>🏠 Smart Home Dashboard</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🌡️ Temperature</h3>
+      <p>{{ sensorData.TEMP }} °C</p>
+    </div>
+
+    <div class="card">
+      <h3>💧 Humidity</h3>
+      <p>{{ sensorData.HUM }} %</p>
+    </div>
+
+    <div class="card">
+      <h3>🔥 Gas Level</h3>
+      <p>{{ sensorData.GAS }}</p>
+    </div>
+
+    <div class="card">
+      <h3>👀 Motion Detected</h3>
+      <p>{{ sensorData.PIR === 1 ? 'Yes' : 'No' }}</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Light</h3>
+      <p>Static or controlled later</p>
+    </div>
+  </div>
+</div>

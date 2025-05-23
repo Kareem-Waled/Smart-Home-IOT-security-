@@ -1,0 +1,15 @@
+<div *ngIf="sensorData; else loading">
+  <h2>Sensor Data</h2>
+  <ul>
+    <li>🌡️ Temperature: {{ sensorData.TEMP }}</li>
+    <li>💧 Humidity: {{ sensorData.HUM }}</li>
+    <li>🔥 Gas Level: {{ sensorData.GAS }}</li>
+    <li>👀 Motion (PIR): {{ sensorData.PIR }}</li>
+    <li>📅 Timestamp: {{ sensorData.TIMESTAMP_SERIAL }}</li>
+    <li>📊 Avg Temp (Lasts): {{ sensorData.AVG_TEMP_LASTS }}</li>
+  </ul>
+</div>
+
+<ng-template #loading>
+  <p>Loading sensor data...</p>
+</ng-template>
