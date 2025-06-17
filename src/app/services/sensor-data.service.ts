@@ -4,19 +4,19 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 export interface SensorData {
-  TEMP: string;
-  HUM: string;
+  TEMP: number;
+  HUM: number;
   GAS: number;
   PIR: number;
   TIMESTAMP_SERIAL: number;
-  AVG_TEMP_LASTS: number | null;
+  AVG_TEMP_LAST5: number | null;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class SensorDataService {
-  private apiUrl = 'http://192.168.1.5:8000/data';
+  private apiUrl = 'http://192.168.234.1:8000/data';
 
   constructor(private http: HttpClient) {}
 
@@ -25,13 +25,13 @@ export class SensorDataService {
       catchError((error) => {
         console.error('❌ Failed to fetch from API. Using fallback data.', error);
         const fallback: SensorData = {
-    TEMP: (20 + Math.random() * 10).toFixed(1), // من 20 لـ 30 درجة
-    HUM: (40 + Math.random() * 30).toFixed(0),  // من 40% لـ 70%
-    GAS: Math.floor(400 + Math.random() * 200), // من 400 لـ 600
-    PIR: Math.random() < 0.5 ? 0 : 1,           // 0 أو 1
-    TIMESTAMP_SERIAL: Date.now(),              // التوقيت الحالي
-    AVG_TEMP_LASTS: +(20 + Math.random() * 10).toFixed(1) // نفس مدى TEMP
-  };
+          TEMP: +(20 + Math.random() * 10).toFixed(1),
+          HUM: +(40 + Math.random() * 30).toFixed(0),
+          GAS: Math.floor(400 + Math.random() * 200),
+          PIR: Math.random() < 0.5 ? 0 : 1,
+          TIMESTAMP_SERIAL: Date.now(),
+          AVG_TEMP_LAST5: +(20 + Math.random() * 10).toFixed(1)
+        };
         return of(fallback);
       })
     );
