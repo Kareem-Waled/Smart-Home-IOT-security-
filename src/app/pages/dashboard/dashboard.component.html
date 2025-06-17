@@ -1,4 +1,4 @@
-<div class="dashboard">
+<div class="dashboard" *ngIf="sensorData">
   <h2>🏠 Smart Home Dashboard</h2>
 
   <div class="cards">
@@ -20,6 +20,16 @@
     <div class="card">
       <h3>👀 Motion Detected</h3>
       <p>{{ sensorData.PIR === 1 ? 'Yes' : 'No' }}</p>
+    </div>
+
+    <div class="card">
+      <h3>📈 Avg Temp (Last 5)</h3>
+      <p>{{ sensorData.AVG_TEMP_LAST5 }} °C</p>
+    </div>
+
+    <div class="card">
+      <h3>⏰ Timestamp</h3>
+      <p>{{ sensorData.TIMESTAMP_SERIAL * 1000 | date:'medium' }}</p>
     </div>
 
     <div class="card">
